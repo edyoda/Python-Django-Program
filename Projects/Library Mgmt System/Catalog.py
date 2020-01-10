@@ -19,7 +19,9 @@ class Catalog:
         book.addBookItem(isbn, rack)
         
     def searchByName(self,name):
-        pass
+        for book in self.books:
+            if name.strip() == book.name:
+                return book
     
     def searchByAuthor(self,author):
         pass
@@ -33,3 +35,8 @@ class Catalog:
             book.printBook()
         
         print ('Total Book Count',c)
+        
+    def removeBookItem(self,name,isbn):
+        book = self.searchByName(name)
+        book_item = book.searchBookItem(isbn)
+        book.removeBookItem(book_item)

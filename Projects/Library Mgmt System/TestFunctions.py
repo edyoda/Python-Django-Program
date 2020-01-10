@@ -3,11 +3,11 @@ from Book import Book
 from Catalog import Catalog
 from User import Member, Librarian
 
-b1 = Book('Shoe Dog','Phil Knight', '2015',312)
-b1.addBookItem('123hg','H1B2')
-b1.addBookItem('124hg','H1B3')
+#b1 = Book('Shoe Dog','Phil Knight', '2015',312)
+#b1.addBookItem('123hg','H1B2')
+#b1.addBookItem('124hg','H1B3')
 
-b1.printBook()
+#b1.printBook()
 
 catalog = Catalog()
 
@@ -27,4 +27,10 @@ librarian = Librarian("Awantik","Bangalore",34,'asljlkj22','zeke101')
 print (m1)
 print (librarian)
 
+b = catalog.searchByName('Shoe Dog')
+print (b)
+
+
+catalog.removeBookItem('Shoe Dog','124hg')
+catalog.displayAllBooks()
 #m1.issueBook

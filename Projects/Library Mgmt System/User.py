@@ -38,5 +38,8 @@ class Librarian(User):
     def removeBook(self,name):
         pass
     
+    def removeBookItemFromCatalog(self,catalog,book,isbn):
+        pass
+    
     
         

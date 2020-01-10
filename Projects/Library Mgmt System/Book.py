@@ -19,3 +19,16 @@ class Book:
         print (self.name,self.author)
         for book_item in self.book_item:
             print (book_item.isbn)
+            
+    def searchBookItem(self,isbn):
+        for book_item in self.book_item:
+            if isbn.strip() == book_item.isbn:
+                return book_item
+            
+    def removeBookItem(self,book_item):
+        if book_item in self.book_item:
+            self.book_item.remove(book_item)
+            self.total_count -=1
+            
+    def __repr__(self):
+        return self.name + ' ' + self.author
