@@ -17,13 +17,6 @@ class YoungerProfile():
         mycursor.execute(sql)
         self.youngerCount = mycursor.fetchall()
 
-    def sign_up(self, user_id):
-        sql = "INSERT INTO youngers (FK_user_ID) VALUES (%s)"
-        val = (user_id)
-        mycursor.execute(sql, val)
-        print("inserted")
-        mydb.commit()
-
     def log_in(self):
         #retrieving passwords for registered mobile no from both table
         sql = f'SELECT password FROM users WHERE email= "{self.email}" '
