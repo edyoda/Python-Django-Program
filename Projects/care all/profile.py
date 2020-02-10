@@ -39,11 +39,19 @@ class User:
                 import index    # due to mutual importing we are importing here just before methodcalling
 
         if self.role=="younger":
-            younger = YoungerProfile(self.email, self.password)
-            younger.sign_up(self.get_user_id())
-        elif self.role=="younger":
-            elder = ElderProfile(self.email, self.password)
-            elder.sign_up(self.get_user_id())
+            user_id = self.get_user_id()
+            sql = "INSERT INTO youngers (FK_user_ID) VALUES ('%s')"
+            val = (user_id)
+            mycursor.execute(sql, val)
+            mydb.commit()
+            import index
+        elif self.role=="elder":
+            user_id = self.get_user_id()
+            sql = "INSERT INTO elders (FK_user_ID) VALUES ('%s')"
+            val = (user_id)
+            mycursor.execute(sql, val)
+            mydb.commit()
+            import index
 
     def get_user_id(self):
         sql = f'SELECT PK_user_id FROM users WHERE email = "{self.email}" '
