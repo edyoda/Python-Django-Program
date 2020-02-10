@@ -14,12 +14,6 @@ class ElderProfile():
         elder_id = mycursor.fetchone()
         self.elder_id=elder_id[0]
 
-    def sign_up(self, user_id):
-        sql = "INSERT INTO elders (FK_user_ID) VALUES (%s)"
-        val = (self.user_id)
-        mycursor.execute(sql, val)
-        mydb.commit()
-
     def log_in(self):
         #retrieving passwords for registered mobile no from both table
         sql = f'SELECT password FROM users WHERE email= "{self.email}" '
